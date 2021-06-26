@@ -1,0 +1,49 @@
+---
+
+
+
+        - name: This will install ngnix
+          hosts: allhosts
+          become: yes
+
+          tasks:
+                  - name: update the package manager
+                    yum:
+                            name: "*"
+                            state: latest
+
+                            # - name: install epel-release
+                            #yum:
+                            #name: epel-release
+                            #state: present
+                            #
+                  - name: remove git
+                    yum:
+                            name: git
+                            state: absent
+
+                  - name: installing git
+                    yum:
+                            name: git
+                            state: present
+
+                  
+                  
+
+        - name: This will remove httpd docker host servers
+          hosts: dockerhosts
+          become: yes
+
+          tasks:
+                  - name: remove httpd
+                    yum:
+                            name: httpd
+                            state: absent
+              
+
+
+
+
+
+
+                    
