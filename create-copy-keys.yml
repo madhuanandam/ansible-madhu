@@ -1,0 +1,36 @@
+---
+
+
+        - name: create and copy pem file on targets
+          hosts: all
+          become: true
+
+
+
+          tasks:
+                  - name: create folder on target machines
+                    command: mkdir pemkeys
+                    args:
+                            chdir: /home/ec2-user
+
+                  - name: copy from source to destination
+                    copy:
+                            src: /home/ec2-user/devops_docker.pem
+                            dest: /home/ec2-user/pemkeys
+
+                  - name: copy file 2
+                    copy:
+                            src: /home/ec2-user/devops_jenkins.pem
+                            dest: /home/ec2-user/pemkeys
+
+
+                  - name: copy file 3
+                    copy:
+                            src: /home/ec2-user/devops_ansible.pem
+                            dest: /home/ec2-user/pemkeys
+                    
+
+                   
+
+
+

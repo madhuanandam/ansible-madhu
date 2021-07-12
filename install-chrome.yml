@@ -1,0 +1,17 @@
+---
+
+- name: install chrome
+  hosts: all
+  become: true
+
+  tasks:
+
+          - name: download chrome
+            command: wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+
+          - name: install chrome
+            command: yum -y localinstall google-chrome-stable_current_x86_64.rpm
+            args:
+                    chdir: /home/ec2-user
+
+

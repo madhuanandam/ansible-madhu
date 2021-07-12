@@ -1,0 +1,19 @@
+--- 
+
+        - name: ansible print variable
+          hosts: jenkinshost
+          become: true
+
+
+
+
+          tasks:
+                  - name: run a command
+                    command: uname -r
+                    register: user
+
+                  - name: print variable
+                    debug: var=user
+                            
+
+    
