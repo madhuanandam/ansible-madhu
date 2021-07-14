@@ -1,0 +1,16 @@
+---
+
+        - name: To create folder in all hosts
+          hosts: allhosts
+          become: yes
+          tasks:
+                  - name: create directory
+                    file:
+                            path: /home/ec2-user/madhuanandam
+                            state: directory
+
+                  - name: copy files
+                    file:
+                            path: "/home/ec2-user/madhuanandam/test1.txt"
+                            state: touch
+

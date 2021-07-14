@@ -1,0 +1,16 @@
+---
+
+     - name: play1
+       hosts: targethost
+       become: yes
+       tasks:
+               - name: install docker
+                 yum:
+                         name: docker
+                         state: present
+
+               - name: Start docker
+                 service:
+                         name: docker
+                         state: started
+

@@ -1,0 +1,15 @@
+---
+
+
+
+        - name: group host by distribution
+          hosts: allhosts
+          gather_facts: true
+
+          tasks:
+           
+
+
+                  - name: do something on amazon
+                    debug:
+                            msg: "This is {{ ansible_distribution }}"

@@ -1,0 +1,30 @@
+---
+
+        - name: This is to install the ansible on docker servers
+          hosts: dockerhosts
+          become: yes
+          tasks:
+                  - name: install ansible
+                    yum:
+                            name: httpd
+                            state: present
+                  - name: install pip
+                    yum:
+                            name: pip
+                            state: present
+
+                  - name: install docker if not available
+                    yum:
+                            name: docker
+                            state: present
+
+                  - name: start docker
+                    service:
+
+                            name: docker
+                            state: started
+
+                  - name: pull docker image
+                    docker_image:
+                            name: ubuntu
+
